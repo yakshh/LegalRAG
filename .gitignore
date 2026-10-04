@@ -20,3 +20,7 @@ dist/
 # OS specific files
 .DS_Store
 Thumbs.db
+
+
+# Source PDFs (download them yourself, see README)
+data/

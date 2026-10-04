@@ -67,9 +67,9 @@ LegalRAG/
 ├── requirements.txt    # Python dependencies
 ├── .env.example        # Environment variable template
 ├── .gitignore          # Git exclusion rules (protects API keys)
-├── data/               # Source legal PDFs
+├── data/               # Source legal PDFs (not in git: download them, see step 3)
 │   ├── ITAct2000.pdf
-│   └── The Consumer Protection Act, 2019.pdf
+│   └── The Consumer Protection Act 2019.pdf
 └── chunks.json         # Processed section-aware chunk repository
 ```
 
@@ -92,14 +92,24 @@ Inside `.env`:
 GEMINI_API_KEY=your_actual_gemini_api_key_here
 ```
 
-### 3. Ingest Documents
-Process the PDFs in `data/` into section-aware chunks:
+### 3. Add the Act PDFs
+The `data/` folder is ignored by git, so after cloning, create it and download the two Acts into it yourself (use a browser; the sites block scripted downloads):
+
+| Act | Download | Save as |
+|---|---|---|
+| Information Technology Act, 2000 | [AICTE PDF](https://aicte.gov.in/sites/default/files/itact2000.pdf) or [India Code](https://www.indiacode.nic.in/handle/123456789/13683) | `data/ITAct2000.pdf` |
+| Consumer Protection Act, 2019 | [India Code](https://www.indiacode.nic.in/handle/123456789/16939) | `data/The Consumer Protection Act 2019.pdf` |
+
+Any PDF placed in `data/` is read, so the exact file names are not important.
+
+### 4. Ingest Documents
+Process the PDFs in `data/` into section-aware chunks (run it again whenever the PDFs change):
 ```bash
 python ingest.py
 ```
 This parses legal section headers (e.g., `Section 43A`, `Section 66`) and creates `chunks.json`.
 
-### 4. Run the Streamlit Web Demo
+### 5. Run the Streamlit Web Demo
 ```bash
 streamlit run app.py
 ```

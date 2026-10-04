@@ -5,6 +5,7 @@
                                    (answer quality is then scored with a rubric / LLM judge)
 """
 import json
+import os
 import sys
 import time
 
@@ -12,6 +13,8 @@ from generate import answer
 from retrieve import cfg, chunks, retrieve
 
 METHODS = ["dense", "hybrid", "hybrid_rerank"]
+if not os.path.exists(cfg["questions_file"]):
+    sys.exit(f"{cfg['questions_file']} not found. Create it with your test questions (format in README.md, Part B).")
 questions = json.load(open(cfg["questions_file"]))
 with_answers = "--answers" in sys.argv
 saved = []

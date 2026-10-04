@@ -104,13 +104,3 @@ This parses legal section headers (e.g., `Section 43A`, `Section 66`) and create
 streamlit run app.py
 ```
 Open `http://localhost:8501` in your browser. You can select your desired retrieval method (`Dense`, `Hybrid`, or `Hybrid + Reranking`), enter any legal query, and inspect the response time, grounded answer, and expandable source citations.
-
-### 5. Run Evaluation Benchmarks
-```bash
-# Evaluate retrieval quality (P@3, P@5, R@3, R@5, Hit@5, MRR, Latency)
-python evaluate.py
-
-# Also generate and save answers for LLM judge evaluation
-python evaluate.py --answers
-```
-

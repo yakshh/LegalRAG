@@ -1,0 +1,22 @@
+# Environment variables (secret API keys)
+.env
+
+# Python bytecode & cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+
+# OS specific files
+.DS_Store
+Thumbs.db

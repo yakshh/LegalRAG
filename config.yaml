@@ -1,0 +1,17 @@
+# All settings in one place. Model names are defaults; confirm them before the final run
+# and record them in report Table 7.1.
+pdf_folder: data                 # put the Act PDFs here (Consumer Protection Act 2019, IT Act 2000)
+questions_file: questions.json
+
+embedding_model: sentence-transformers/all-MiniLM-L6-v2
+reranker_model: cross-encoder/ms-marco-MiniLM-L-6-v2
+llm_model: gemini-3.5-flash      # Gemini API model (key is read from .env)
+
+chunk_size: 1000                 # characters
+chunk_overlap: 150
+top_k: 5                         # K : chunks sent to the LLM
+n_candidates: 20                 # N : candidates taken from each retriever
+rerank_candidates: 20            # M : fused candidates given to the cross-encoder
+rrf_k: 60                        # RRF constant k
+bm25_k1: 1.5
+bm25_b: 0.75

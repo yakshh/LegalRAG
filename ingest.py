@@ -9,13 +9,26 @@ import yaml
 
 cfg = yaml.safe_load(open("config.yaml"))
 SECTION = re.compile(r"^\s*(\d+[A-Z]?)\.\s+(\S.*)")  # a line like "2. Definitions.-"
+MIN_CHARS = 80  # shorter pieces are table-of-contents lines, not real sections
+
+
+def clean(text):
+    text = text.replace("�", "-")        # broken dash characters in the PDFs
+    return re.sub(r"\s+", " ", text).strip()  # one line, single spaces
 
 
 def split_text(text, size, overlap):
+    """Cut text into pieces of about `size` characters, always breaking at a space."""
     pieces, start = [], 0
     while start < len(text):
-        pieces.append(text[start:start + size])
-        start += size - overlap
+        end = start + size
+        if end < len(text):
+            end = text.rfind(" ", start + overlap + 1, end) + 1 or end
+        pieces.append(text[start:end].strip())
+        if end >= len(text):
+            break
+        start = max(end - overlap, start + 1)
+        start = text.find(" ", start) + 1 or start   # start the next piece at a word boundary
     return pieces
 
 
@@ -26,7 +39,10 @@ def main():
         section, buffer, buffer_page = "Preamble", "", 1
 
         def save_section():
-            for piece in split_text(buffer.strip(), cfg["chunk_size"], cfg["chunk_overlap"]):
+            text = clean(buffer)
+            if len(text) < MIN_CHARS:
+                return
+            for piece in split_text(text, cfg["chunk_size"], cfg["chunk_overlap"]):
                 chunks.append({"id": len(chunks), "document": doc_name, "page": buffer_page,
                                "section": section, "text": piece})
 

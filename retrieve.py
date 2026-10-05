@@ -1,66 +1,140 @@
-"""The three retrieval methods: dense, hybrid (BM25 + dense with RRF), hybrid + reranker."""
+"""Retrieval methods.
+
+Main experiment (same chunks, same settings for all three):
+    dense          Method 1: sentence embeddings + FAISS cosine search
+    hybrid         Method 2: dense + BM25, merged with Reciprocal Rank Fusion (RRF)
+    hybrid_rerank  Method 3: hybrid candidates re-scored by a cross-encoder
+
+Extra methods used only for the ablation study (evaluate.py --ablation):
+    bm25           BM25 only
+    dense_bm25     dense + BM25 merged WITHOUT RRF (simple interleaving)
+
+Every returned chunk is a dict with the extra keys "score" and "score_type".
+"""
 import json
 import re
+from functools import lru_cache
+from typing import Dict, List, Optional, Sequence
 
 import faiss
+import numpy as np
 import yaml
 from rank_bm25 import BM25Okapi
-from sentence_transformers import CrossEncoder, SentenceTransformer
 
-cfg = yaml.safe_load(open("config.yaml"))
-chunks = json.load(open("chunks.json"))
-texts = [c["text"] for c in chunks]
-
-# dense index (normalised vectors + inner product = cosine similarity)
-embedder = SentenceTransformer(cfg["embedding_model"])
-index = faiss.IndexFlatIP(embedder.get_sentence_embedding_dimension())
-index.add(embedder.encode(texts, normalize_embeddings=True))
-
-# BM25 index
-tokenize = lambda s: re.findall(r"\w+", s.lower())
-bm25 = BM25Okapi([tokenize(t) for t in texts], k1=cfg["bm25_k1"], b=cfg["bm25_b"])
-
-reranker = None  # loaded the first time it is needed
+MAIN_METHODS = ["dense", "hybrid", "hybrid_rerank"]
+ABLATION_METHODS = ["dense", "bm25", "dense_bm25", "hybrid", "hybrid_rerank"]
+METHOD_NAMES = {
+    "dense": "Dense RAG",
+    "bm25": "BM25 only",
+    "dense_bm25": "Dense + BM25 (no RRF)",
+    "hybrid": "Hybrid RAG",
+    "hybrid_rerank": "Hybrid + Reranking",
+}
 
 
-def dense_search(question, n):
-    q = embedder.encode([question], normalize_embeddings=True)
-    _, ids = index.search(q, n)
-    return [int(i) for i in ids[0] if i >= 0]
+def load_config(path: str = "config.yaml") -> dict:
+    with open(path, encoding="utf-8") as f:
+        return yaml.safe_load(f)
 
 
-def bm25_search(question, n):
-    scores = bm25.get_scores(tokenize(question))
-    return sorted(range(len(texts)), key=lambda i: -scores[i])[:n]
+def tokenize(text: str) -> List[str]:
+    return re.findall(r"\w+", text.lower())
 
 
-def rrf(*ranked_lists):
-    """Reciprocal Rank Fusion: score = sum of 1 / (k + rank) over the lists."""
-    score = {}
+def rrf(ranked_lists: Sequence[Sequence[int]], k: int = 60) -> Dict[int, float]:
+    """Reciprocal Rank Fusion: score(d) = sum over the lists of 1 / (k + rank(d)). Needs no score scaling."""
+    score: Dict[int, float] = {}
     for ranked in ranked_lists:
         for rank, i in enumerate(ranked, start=1):
-            score[i] = score.get(i, 0) + 1 / (cfg["rrf_k"] + rank)
-    return sorted(score, key=lambda i: -score[i])
+            score[i] = score.get(i, 0.0) + 1.0 / (k + rank)
+    return score
 
 
-def retrieve(question, method, k=None):
-    """method is 'dense', 'hybrid' or 'hybrid_rerank'. Returns a list of chunk dicts."""
-    global reranker
-    k = k or cfg["top_k"]
-    n = cfg["n_candidates"]
-    dense = dense_search(question, n)
+def interleave(*ranked_lists: Sequence[int]) -> List[int]:
+    """Naive merge for the ablation: take rank 1 of each list, then rank 2, ... (duplicates removed)."""
+    merged: List[int] = []
+    for row in zip(*ranked_lists):
+        for i in row:
+            if i not in merged:
+                merged.append(i)
+    return merged
 
-    if method == "dense":
-        ids = dense[:k]
-    else:
-        fused = rrf(dense, bm25_search(question, n))
-        if method == "hybrid":
-            ids = fused[:k]
+
+class Retriever:
+    """Builds the dense (FAISS) and BM25 indexes once; the cross-encoder is loaded on first use."""
+
+    def __init__(self, chunks: List[dict], cfg: dict):
+        from sentence_transformers import SentenceTransformer  # imported here: heavy
+
+        self.cfg = cfg
+        self.chunks = chunks
+        self.texts = [c["text"] for c in chunks]
+        self.embedder = SentenceTransformer(cfg["embedding_model"])
+        vectors = self.embedder.encode(self.texts, normalize_embeddings=True)
+        self.index = faiss.IndexFlatIP(vectors.shape[1])   # normalised vectors: inner product = cosine
+        self.index.add(np.asarray(vectors, dtype="float32"))
+        self.bm25 = BM25Okapi([tokenize(t) for t in self.texts], k1=cfg["bm25_k1"], b=cfg["bm25_b"])
+        self.reranker = None
+
+    # ---- individual retrievers: return (chunk ids, scores), best first ----
+    def dense_search(self, question: str, n: int):
+        q = self.embedder.encode([question], normalize_embeddings=True)
+        scores, ids = self.index.search(np.asarray(q, dtype="float32"), n)
+        keep = [(int(i), float(s)) for i, s in zip(ids[0], scores[0]) if i >= 0]
+        return [i for i, _ in keep], [s for _, s in keep]
+
+    def bm25_search(self, question: str, n: int):
+        scores = self.bm25.get_scores(tokenize(question))
+        ids = sorted(range(len(self.texts)), key=lambda i: -scores[i])[:n]
+        return ids, [float(scores[i]) for i in ids]
+
+    def rerank(self, question: str, candidate_ids: List[int]):
+        from sentence_transformers import CrossEncoder
+
+        if self.reranker is None:
+            self.reranker = CrossEncoder(self.cfg["reranker_model"])
+        scores = self.reranker.predict([(question, self.texts[i]) for i in candidate_ids])
+        ranked = sorted(zip(candidate_ids, (float(s) for s in scores)), key=lambda p: -p[1])
+        return [i for i, _ in ranked], [s for _, s in ranked]
+
+    # ---- the methods ----
+    def retrieve(self, question: str, method: str, k: Optional[int] = None) -> List[dict]:
+        """Return the top-k chunks (dicts with 'score' and 'score_type' added) for the given method."""
+        k = k or self.cfg["top_k"]
+        n = self.cfg["n_candidates"]
+        if method == "dense":
+            ids, scores = self.dense_search(question, n)
+            stype = "cosine similarity"
+        elif method == "bm25":
+            ids, scores = self.bm25_search(question, n)
+            stype = "BM25 score"
+        elif method == "dense_bm25":
+            ids = interleave(self.dense_search(question, n)[0], self.bm25_search(question, n)[0])
+            scores, stype = [float("nan")] * len(ids), "none (interleaved)"
+        elif method in ("hybrid", "hybrid_rerank"):
+            fused = rrf([self.dense_search(question, n)[0], self.bm25_search(question, n)[0]],
+                        self.cfg["rrf_k"])
+            ids = sorted(fused, key=lambda i: -fused[i])
+            scores, stype = [fused[i] for i in ids], "RRF score"
+            if method == "hybrid_rerank":
+                ids, scores = self.rerank(question, ids[: self.cfg["rerank_candidates"]])
+                stype = "cross-encoder score"
         else:
-            if reranker is None:
-                reranker = CrossEncoder(cfg["reranker_model"])
-            candidates = fused[:cfg["rerank_candidates"]]
-            scores = reranker.predict([(question, texts[i]) for i in candidates])
-            ranked = sorted(zip(scores, candidates), reverse=True)
-            ids = [i for _, i in ranked][:k]
-    return [chunks[i] for i in ids]
+            raise ValueError(f"Unknown retrieval method: {method!r}")
+        return [dict(self.chunks[i], score=s, score_type=stype) for i, s in zip(ids[:k], scores[:k])]
+
+
+@lru_cache(maxsize=1)
+def get_retriever() -> Retriever:
+    """Shared Retriever built from config.yaml and chunks.json (run ingest.py first)."""
+    cfg = load_config()
+    try:
+        with open(cfg["chunks_file"], encoding="utf-8") as f:
+            chunks = json.load(f)
+    except FileNotFoundError:
+        raise SystemExit(f"{cfg['chunks_file']} not found. Run 'python ingest.py' first.")
+    return Retriever(chunks, cfg)
+
+
+def retrieve(question: str, method: str, k: Optional[int] = None) -> List[dict]:
+    return get_retriever().retrieve(question, method, k)

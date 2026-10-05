@@ -1,10 +1,11 @@
-# Environment variables (secret API keys)
+# Secrets
 .env
 
-# Python bytecode & cache
+# Python
 __pycache__/
 *.py[cod]
 *$py.class
+.pytest_cache/
 
 # Virtual environments
 .venv/
@@ -12,15 +13,17 @@ venv/
 env/
 ENV/
 
-# Distribution / packaging
+# Packaging
 build/
 dist/
 *.egg-info/
 
-# OS specific files
+# OS files
 .DS_Store
 Thumbs.db
 
+# Source PDFs: download them yourself (see data/README.md)
+data/*.pdf
 
-# Source PDFs (download them yourself, see README)
-data/
+# Generated from data/ by `python ingest.py` (reproducible, so not committed)
+chunks.json

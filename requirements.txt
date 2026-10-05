@@ -5,3 +5,6 @@ rank_bm25
 pyyaml
 requests
 streamlit
+pandas
+matplotlib
+pytest

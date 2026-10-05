@@ -1,17 +1,38 @@
-# All settings in one place. Model names are defaults; confirm them before the final run
-# and record them in report Table 7.1.
-pdf_folder: data                 # put the Act PDFs here (Consumer Protection Act 2019, IT Act 2000)
-questions_file: questions.json
+# LegalRAG configuration. Every experiment setting lives here.
+# The same settings are used by all three methods (Dense, Hybrid, Hybrid + Reranking).
 
+# ---- paths ----
+documents_dir: data                          # Act PDFs (see data/README.md)
+chunks_file: chunks.json                     # written by ingest.py
+questions_file: evaluation/questions.json    # evaluation dataset
+evaluation_dir: evaluation                   # answers.json, answer_results.csv, retrieval_results.csv
+results_dir: results                         # summary.json, figures/
+
+# ---- models (all pretrained, none is trained) ----
 embedding_model: sentence-transformers/all-MiniLM-L6-v2
 reranker_model: cross-encoder/ms-marco-MiniLM-L-6-v2
-llm_model: gemini-3.5-flash      # Gemini API model (key is read from .env)
+llm_model: gemini-3.5-flash-lite             # answer generation (Gemini API). Change here if Google retires it.
+                                             # Free-tier note: gemini-3.5/3.6-flash allow only ~20 requests per day,
+                                             # the -lite models allow 15 per minute, so a lite model is used here.
+judge_model: gemini-3.1-flash-lite           # LLM judge for evaluate_answers.py (same for all methods; a different
+                                             # model from the generator to reduce self-preference bias)
 
-chunk_size: 1000                 # characters
+# ---- chunking ----
+chunk_size: 1000                             # characters
 chunk_overlap: 150
-top_k: 5                         # K : chunks sent to the LLM
-n_candidates: 20                 # N : candidates taken from each retriever
-rerank_candidates: 20            # M : fused candidates given to the cross-encoder
-rrf_k: 60                        # RRF constant k
+
+# ---- retrieval ----
+top_k: 5                                     # K : chunks sent to the LLM
+n_candidates: 20                             # N : candidates taken from each retriever (dense, BM25)
+rerank_candidates: 20                        # M : fused candidates given to the cross-encoder
+rrf_k: 60                                    # RRF constant k
 bm25_k1: 1.5
 bm25_b: 0.75
+
+# ---- evaluation ----
+retrieval_ks: [3, 5]                         # K values for Precision / Recall / Hit
+eval_depth: 10                               # ranked list length used for MRR and the metrics
+random_seed: 42                              # for the permutation test
+permutation_trials: 10000
+llm_delay_seconds: 4.5                         # pause between Gemini calls (free-tier rate limits)
+insufficient_message: "Insufficient evidence in the retrieved legal documents to answer this question reliably."

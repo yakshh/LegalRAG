@@ -1,0 +1,790 @@
+[
+  {
+    "question_id": "Q001",
+    "question": "How does the Information Technology Act, 2000 define an electronic record?",
+    "source_document": "ITAct2000.pdf",
+    "source_section": "Section 2",
+    "source_page": 3,
+    "expected_answer": "\"Electronic record\" means data, record or data generated, image or sound stored, received or sent in an electronic form or micro film or computer generated micro fiche.",
+    "relevant_sections": [
+      "Section 2"
+    ],
+    "difficulty": "easy",
+    "category": "definition",
+    "answerable": true,
+    "evidence_phrases": {
+      "Section 2": "means data, record or data generated, image or sound stored"
+    }
+  },
+  {
+    "question_id": "Q002",
+    "question": "Who is a subscriber under the IT Act?",
+    "source_document": "ITAct2000.pdf",
+    "source_section": "Section 2",
+    "source_page": 3,
+    "expected_answer": "A subscriber is a person in whose name the Digital Signature Certificate is issued.",
+    "relevant_sections": [
+      "Section 2"
+    ],
+    "difficulty": "easy",
+    "category": "definition",
+    "answerable": true,
+    "evidence_phrases": {
+      "Section 2": "means a person in whose name the digital signature certificate is issued"
+    }
+  },
+  {
+    "question_id": "Q003",
+    "question": "What is meant by the term originator in the IT Act?",
+    "source_document": "ITAct2000.pdf",
+    "source_section": "Section 2",
+    "source_page": 3,
+    "expected_answer": "An originator is a person who sends, generates, stores or transmits any electronic message or causes any electronic message to be sent, generated, stored or transmitted to any other person, but does not include an intermediary.",
+    "relevant_sections": [
+      "Section 2"
+    ],
+    "difficulty": "medium",
+    "category": "definition",
+    "answerable": true,
+    "evidence_phrases": {
+      "Section 2": "means a person who sends, generates, stores or transmits any electronic message"
+    }
+  },
+  {
+    "question_id": "Q004",
+    "question": "What does digital signature mean in the Act?",
+    "source_document": "ITAct2000.pdf",
+    "source_section": "Section 2",
+    "source_page": 3,
+    "expected_answer": "\"Digital signature\" means authentication of any electronic record by a subscriber by means of an electronic method or procedure in accordance with the provisions of section 3.",
+    "relevant_sections": [
+      "Section 2"
+    ],
+    "difficulty": "medium",
+    "category": "definition",
+    "answerable": true,
+    "evidence_phrases": {
+      "Section 2": "by means of an electronic method or procedure in accordance with the provisions of section 3"
+    }
+  },
+  {
+    "question_id": "Q005",
+    "question": "What does Section 4 of the IT Act say about legal recognition of electronic records?",
+    "source_document": "ITAct2000.pdf",
+    "source_section": "Section 4",
+    "source_page": 6,
+    "expected_answer": "Where any law requires information or any other matter to be in writing or in typewritten or printed form, the requirement is deemed satisfied if the information is rendered or made available in an electronic form and is accessible so as to be usable for a subsequent reference.",
+    "relevant_sections": [
+      "Section 4"
+    ],
+    "difficulty": "easy",
+    "category": "section_specific",
+    "answerable": true
+  },
+  {
+    "question_id": "Q006",
+    "question": "What conditions must be met for a legal requirement to retain documents to be satisfied by keeping electronic records?",
+    "source_document": "ITAct2000.pdf",
+    "source_section": "Section 7",
+    "source_page": 7,
+    "expected_answer": "The information must remain accessible so as to be usable for a subsequent reference; the electronic record must be retained in the format in which it was originally generated, sent or received, or in a format that accurately represents the original information; and the details identifying the origin, destination, date and time of despatch or receipt must be available in the record.",
+    "relevant_sections": [
+      "Section 7"
+    ],
+    "difficulty": "medium",
+    "category": "legal_obligation",
+    "answerable": true,
+    "evidence_phrases": {
+      "Section 7": "retained in the format in which it was originally generated, sent or received"
+    }
+  },
+  {
+    "question_id": "Q007",
+    "question": "How much compensation is payable by a person who accesses or damages a computer system without the owner's permission?",
+    "source_document": "ITAct2000.pdf",
+    "source_section": "Section 43",
+    "source_page": 15,
+    "expected_answer": "The person is liable to pay damages by way of compensation not exceeding one crore rupees to the person so affected.",
+    "relevant_sections": [
+      "Section 43"
+    ],
+    "difficulty": "easy",
+    "category": "penalty_provision",
+    "answerable": true,
+    "evidence_phrases": {
+      "Section 43": "not exceeding one crore rupees"
+    }
+  },
+  {
+    "question_id": "Q008",
+    "question": "What is the punishment for tampering with computer source documents?",
+    "source_document": "ITAct2000.pdf",
+    "source_section": "Section 65",
+    "source_page": 20,
+    "expected_answer": "Imprisonment up to three years, or a fine which may extend up to two lakh rupees, or both.",
+    "relevant_sections": [
+      "Section 65"
+    ],
+    "difficulty": "easy",
+    "category": "penalty_provision",
+    "answerable": true
+  },
+  {
+    "question_id": "Q009",
+    "question": "What punishment does the Act prescribe for hacking with a computer system?",
+    "source_document": "ITAct2000.pdf",
+    "source_section": "Section 66",
+    "source_page": 20,
+    "expected_answer": "Whoever commits hacking shall be punished with imprisonment up to three years, or with a fine which may extend up to two lakh rupees, or with both.",
+    "relevant_sections": [
+      "Section 66"
+    ],
+    "difficulty": "easy",
+    "category": "penalty_provision",
+    "answerable": true
+  },
+  {
+    "question_id": "Q010",
+    "question": "What are the punishments for publishing obscene material in electronic form on first conviction and on a second or subsequent conviction?",
+    "source_document": "ITAct2000.pdf",
+    "source_section": "Section 67",
+    "source_page": 20,
+    "expected_answer": "On first conviction: imprisonment of either description for a term which may extend to five years and a fine which may extend to one lakh rupees. On a second or subsequent conviction: imprisonment which may extend to ten years and a fine which may extend to two lakh rupees.",
+    "relevant_sections": [
+      "Section 67"
+    ],
+    "difficulty": "medium",
+    "category": "penalty_provision",
+    "answerable": true
+  },
+  {
+    "question_id": "Q011",
+    "question": "What duties does a subscriber have regarding the private key of a Digital Signature Certificate?",
+    "source_document": "ITAct2000.pdf",
+    "source_section": "Section 42",
+    "source_page": 15,
+    "expected_answer": "The subscriber must exercise reasonable care to retain control of the private key and take all steps to prevent its disclosure to unauthorised persons. If the private key is compromised, the subscriber must communicate this to the Certifying Authority without any delay, and remains liable until the Certifying Authority has been informed.",
+    "relevant_sections": [
+      "Section 42"
+    ],
+    "difficulty": "medium",
+    "category": "legal_obligation",
+    "answerable": true
+  },
+  {
+    "question_id": "Q012",
+    "question": "What must a Certifying Authority certify when it issues a Digital Signature Certificate?",
+    "source_document": "ITAct2000.pdf",
+    "source_section": "Section 36",
+    "source_page": 14,
+    "expected_answer": "It must certify that it has complied with the Act and the rules and regulations; that it has published the certificate or made it available to the person relying on it and the subscriber has accepted it; that the subscriber holds the private key corresponding to the public key listed; that the subscriber's public and private keys form a functioning key pair; that the information in the certificate is accurate; and that it has no knowledge of any material fact which would adversely affect the reliability of these representations.",
+    "relevant_sections": [
+      "Section 36"
+    ],
+    "difficulty": "hard",
+    "category": "legal_obligation",
+    "answerable": true
+  },
+  {
+    "question_id": "Q013",
+    "question": "Does the IT Act apply to an offence committed outside India?",
+    "source_document": "ITAct2000.pdf",
+    "source_section": "Section 75",
+    "source_page": 23,
+    "expected_answer": "Yes. The Act applies to any offence or contravention committed outside India by any person irrespective of nationality, if the act or conduct constituting the offence or contravention involves a computer, computer system or computer network located in India.",
+    "relevant_sections": [
+      "Section 75",
+      "Section 1"
+    ],
+    "difficulty": "medium",
+    "category": "applicability",
+    "answerable": true,
+    "evidence_phrases": {
+      "Section 1": "it applies also to any offence or contravention thereunder committed outside India"
+    }
+  },
+  {
+    "question_id": "Q014",
+    "question": "Which documents or transactions are excluded from the application of the IT Act?",
+    "source_document": "ITAct2000.pdf",
+    "source_section": "Section 1",
+    "source_page": 2,
+    "expected_answer": "The Act does not apply to a negotiable instrument, a power-of-attorney, a trust, a will (including any other testamentary disposition), any contract for the sale or conveyance of immovable property or any interest in such property, and any class of documents or transactions notified by the Central Government in the Official Gazette.",
+    "relevant_sections": [
+      "Section 1"
+    ],
+    "difficulty": "medium",
+    "category": "applicability",
+    "answerable": true,
+    "evidence_phrases": {
+      "Section 1": "a negotiable instrument as defined in section 13 of the negotiable instruments act"
+    }
+  },
+  {
+    "question_id": "Q015",
+    "question": "An employee copies confidential data from the company's computer network without the permission of the person in charge. Which provision applies and what remedy does it give?",
+    "source_document": "ITAct2000.pdf",
+    "source_section": "Section 43",
+    "source_page": 15,
+    "expected_answer": "Section 43 applies: downloading, copying or extracting data from a computer, computer system or computer network without the permission of the owner or person in charge makes the person liable to pay damages by way of compensation not exceeding one crore rupees to the person affected.",
+    "relevant_sections": [
+      "Section 43"
+    ],
+    "difficulty": "medium",
+    "category": "scenario_based",
+    "answerable": true,
+    "evidence_phrases": {
+      "Section 43": "downloads, copies or extracts any data"
+    }
+  },
+  {
+    "question_id": "Q016",
+    "question": "How does the punishment for tampering with computer source documents differ from the punishment for publishing obscene information in electronic form?",
+    "source_document": "ITAct2000.pdf",
+    "source_section": "Section 65",
+    "source_page": 20,
+    "expected_answer": "Tampering with computer source documents (Section 65) is punishable with imprisonment up to three years, or a fine up to two lakh rupees, or both. Publishing obscene material (Section 67) is punishable on first conviction with imprisonment up to five years and a fine up to one lakh rupees, and on subsequent conviction with imprisonment up to ten years and a fine up to two lakh rupees.",
+    "relevant_sections": [
+      "Section 65",
+      "Section 67"
+    ],
+    "difficulty": "hard",
+    "category": "comparison",
+    "answerable": true
+  },
+  {
+    "question_id": "Q017",
+    "question": "What opportunity must a subscriber be given before a Digital Signature Certificate is suspended for a long period or revoked?",
+    "source_document": "ITAct2000.pdf",
+    "source_section": "Section 37",
+    "source_page": 14,
+    "expected_answer": "A certificate cannot be suspended for a period exceeding fifteen days unless the subscriber has been given an opportunity of being heard (Section 37). A certificate cannot be revoked unless the subscriber has been given an opportunity of being heard (Section 38).",
+    "relevant_sections": [
+      "Section 37",
+      "Section 38"
+    ],
+    "difficulty": "hard",
+    "category": "multi_section",
+    "answerable": true,
+    "evidence_phrases": {
+      "Section 38": "shall not be revoked unless the subscriber has been given an opportunity of being heard"
+    }
+  },
+  {
+    "question_id": "Q018",
+    "question": "Where can a person aggrieved by an order of an adjudicating officer appeal, and where can the decision of that appellate body be challenged?",
+    "source_document": "ITAct2000.pdf",
+    "source_section": "Section 57",
+    "source_page": 19,
+    "expected_answer": "A person aggrieved by an order of the Controller or an adjudicating officer may appeal to the Cyber Appellate Tribunal (Section 57). A person aggrieved by a decision or order of the Cyber Appellate Tribunal may appeal to the High Court within sixty days of communication of the decision, extendable by a further period not exceeding sixty days for sufficient cause (Section 62).",
+    "relevant_sections": [
+      "Section 57",
+      "Section 62"
+    ],
+    "difficulty": "hard",
+    "category": "multi_section",
+    "answerable": true,
+    "evidence_phrases": {
+      "Section 57": "any person aggrieved by an order made by controller or an adjudicating officer"
+    }
+  },
+  {
+    "question_id": "Q019",
+    "question": "Which provision says that the sections on electronic records in government do not give a right to insist that documents be accepted in electronic form?",
+    "source_document": "ITAct2000.pdf",
+    "source_section": "Section 9",
+    "source_page": 7,
+    "expected_answer": "Section 9: nothing in sections 6, 7 and 8 confers a right upon any person to insist that any Ministry or Department of the Central or State Government, or any authority or body established by or under any law or controlled or funded by the Government, should accept, issue, create, retain and preserve any document in the form of electronic records or effect any monetary transaction in electronic form.",
+    "relevant_sections": [
+      "Section 9"
+    ],
+    "difficulty": "medium",
+    "category": "exact_terminology",
+    "answerable": true
+  },
+  {
+    "question_id": "Q020",
+    "question": "If a company breaks the IT Act, can the people running the company be held responsible?",
+    "source_document": "ITAct2000.pdf",
+    "source_section": "Section 85",
+    "source_page": 24,
+    "expected_answer": "Yes. Every person who, at the time of the contravention, was in charge of and responsible to the company for the conduct of its business, as well as the company, is guilty and liable to be punished, unless that person proves the contravention took place without his knowledge or that he exercised all due diligence to prevent it. A director, manager, secretary or other officer is also deemed guilty if the contravention took place with his consent or connivance or is attributable to his neglect.",
+    "relevant_sections": [
+      "Section 85"
+    ],
+    "difficulty": "hard",
+    "category": "semantic_understanding",
+    "answerable": true,
+    "evidence_phrases": {
+      "Section 85": "was in charge of, and was responsible to, the company"
+    }
+  },
+  {
+    "question_id": "Q021",
+    "question": "Is an internet service provider liable for illegal content posted by its users?",
+    "source_document": "ITAct2000.pdf",
+    "source_section": "Section 79",
+    "source_page": 23,
+    "expected_answer": "Under Section 79 a network service provider (an intermediary) is not liable under the Act for third party information or data made available by it if it proves that the offence or contravention was committed without its knowledge or that it exercised all due diligence to prevent the offence or contravention.",
+    "relevant_sections": [
+      "Section 79"
+    ],
+    "difficulty": "medium",
+    "category": "semantic_understanding",
+    "answerable": true
+  },
+  {
+    "question_id": "Q022",
+    "question": "Can the police arrest someone without a warrant for an offence under the IT Act?",
+    "source_document": "ITAct2000.pdf",
+    "source_section": "Section 80",
+    "source_page": 24,
+    "expected_answer": "Yes, in a public place. Section 80 allows a police officer not below the rank of Deputy Superintendent of Police, or another authorised officer of the Central or State Government, to enter any public place and search and arrest without warrant any person reasonably suspected of having committed, committing or being about to commit an offence under the Act. Under Section 78 offences under the Act are investigated by a police officer not below the rank of Deputy Superintendent of Police.",
+    "relevant_sections": [
+      "Section 80",
+      "Section 78"
+    ],
+    "difficulty": "hard",
+    "category": "semantic_understanding",
+    "answerable": true,
+    "evidence_phrases": {
+      "Section 80": "search and arrest without warrant"
+    }
+  },
+  {
+    "question_id": "Q023",
+    "question": "Who is a consumer under the Consumer Protection Act, 2019?",
+    "source_document": "ConsumerProtectionAct2019.pdf",
+    "source_section": "Section 2",
+    "source_page": 4,
+    "expected_answer": "A consumer is a person who buys any goods, or hires or avails of any service, for a consideration paid, promised, partly paid and partly promised or under deferred payment, and includes a user of the goods or a beneficiary of the service with the approval of the buyer or hirer. It does not include a person who obtains goods for resale or for any commercial purpose, or who avails of a service for any commercial purpose.",
+    "relevant_sections": [
+      "Section 2"
+    ],
+    "difficulty": "medium",
+    "category": "definition",
+    "answerable": true,
+    "evidence_phrases": {
+      "Section 2": "\"consumer\" means any person who"
+    }
+  },
+  {
+    "question_id": "Q024",
+    "question": "What is an unfair trade practice according to the Act?",
+    "source_document": "ConsumerProtectionAct2019.pdf",
+    "source_section": "Section 2",
+    "source_page": 4,
+    "expected_answer": "An unfair trade practice is a trade practice which, for the purpose of promoting the sale, use or supply of any goods or the provision of any service, adopts any unfair method or unfair or deceptive practice, including, for example, falsely representing that goods are of a particular standard, quality, quantity, grade, composition, style or model, or that services are of a particular standard, quality or grade.",
+    "relevant_sections": [
+      "Section 2"
+    ],
+    "difficulty": "medium",
+    "category": "definition",
+    "answerable": true,
+    "evidence_phrases": {
+      "Section 2": "\"unfair trade practice\" means a trade practice which"
+    }
+  },
+  {
+    "question_id": "Q025",
+    "question": "How does the Act define a defect in goods?",
+    "source_document": "ConsumerProtectionAct2019.pdf",
+    "source_section": "Section 2",
+    "source_page": 4,
+    "expected_answer": "A defect means any fault, imperfection or shortcoming in the quality, quantity, potency, purity or standard which is required to be maintained by or under any law, or under any contract (express or implied), or as is claimed by the trader in any manner in relation to any goods or product.",
+    "relevant_sections": [
+      "Section 2"
+    ],
+    "difficulty": "easy",
+    "category": "definition",
+    "answerable": true,
+    "evidence_phrases": {
+      "Section 2": "\"defect\" means any fault, imperfection or shortcoming"
+    }
+  },
+  {
+    "question_id": "Q026",
+    "question": "What does e-commerce mean under the Consumer Protection Act?",
+    "source_document": "ConsumerProtectionAct2019.pdf",
+    "source_section": "Section 2",
+    "source_page": 4,
+    "expected_answer": "E-commerce means buying or selling of goods or services, including digital products, over a digital or electronic network.",
+    "relevant_sections": [
+      "Section 2"
+    ],
+    "difficulty": "easy",
+    "category": "definition",
+    "answerable": true,
+    "evidence_phrases": {
+      "Section 2": "\"e-commerce\" means buying or selling of goods or services including digital products"
+    }
+  },
+  {
+    "question_id": "Q027",
+    "question": "What is product liability?",
+    "source_document": "ConsumerProtectionAct2019.pdf",
+    "source_section": "Section 2",
+    "source_page": 4,
+    "expected_answer": "Product liability means the responsibility of a product manufacturer or product seller, of any product or service, to compensate for any harm caused to a consumer by a defective product manufactured or sold, or by deficiency in services relating thereto.",
+    "relevant_sections": [
+      "Section 2"
+    ],
+    "difficulty": "medium",
+    "category": "definition",
+    "answerable": true,
+    "evidence_phrases": {
+      "Section 2": "\"product liability\" means the responsibility of a product manufacturer or product seller"
+    }
+  },
+  {
+    "question_id": "Q028",
+    "question": "What is the time limit for filing a consumer complaint?",
+    "source_document": "ConsumerProtectionAct2019.pdf",
+    "source_section": "Section 69",
+    "source_page": 28,
+    "expected_answer": "A complaint must be filed within two years from the date on which the cause of action has arisen. It may be entertained after that period if the complainant satisfies the Commission that there was sufficient cause for the delay, and the Commission records its reasons for condoning the delay.",
+    "relevant_sections": [
+      "Section 69"
+    ],
+    "difficulty": "easy",
+    "category": "section_specific",
+    "answerable": true
+  },
+  {
+    "question_id": "Q029",
+    "question": "Up to what value of goods or services does a District Commission have jurisdiction to hear complaints?",
+    "source_document": "ConsumerProtectionAct2019.pdf",
+    "source_section": "Section 34",
+    "source_page": 18,
+    "expected_answer": "The District Commission has jurisdiction to entertain complaints where the value of the goods or services paid as consideration does not exceed one crore rupees (the Central Government may prescribe another value).",
+    "relevant_sections": [
+      "Section 34"
+    ],
+    "difficulty": "easy",
+    "category": "applicability",
+    "answerable": true,
+    "evidence_phrases": {
+      "Section 34": "does not exceed one crore rupees"
+    }
+  },
+  {
+    "question_id": "Q030",
+    "question": "How do the monetary jurisdictions of the District, State and National Commissions differ?",
+    "source_document": "ConsumerProtectionAct2019.pdf",
+    "source_section": "Section 34",
+    "source_page": 18,
+    "expected_answer": "The District Commission hears complaints where the consideration paid does not exceed one crore rupees (Section 34). The State Commission hears complaints where it exceeds one crore rupees but does not exceed ten crore rupees (Section 47). The National Commission hears complaints where it exceeds ten crore rupees (Section 58).",
+    "relevant_sections": [
+      "Section 34",
+      "Section 47",
+      "Section 58"
+    ],
+    "difficulty": "hard",
+    "category": "comparison",
+    "answerable": true,
+    "evidence_phrases": {
+      "Section 34": "does not exceed one crore rupees",
+      "Section 47": "exceeds rupees one crore, but does not exceed rupees ten crore",
+      "Section 58": "exceeds rupees ten crore"
+    }
+  },
+  {
+    "question_id": "Q031",
+    "question": "Within how many days can an order of a District Commission be appealed, and what must an appellant deposit?",
+    "source_document": "ConsumerProtectionAct2019.pdf",
+    "source_section": "Section 41",
+    "source_page": 23,
+    "expected_answer": "An appeal lies to the State Commission within forty-five days from the date of the order (the State Commission may entertain it later for sufficient cause). A person required to pay an amount under the District Commission's order must deposit fifty per cent of that amount before the appeal is entertained.",
+    "relevant_sections": [
+      "Section 41"
+    ],
+    "difficulty": "medium",
+    "category": "legal_obligation",
+    "answerable": true
+  },
+  {
+    "question_id": "Q032",
+    "question": "What is the appeal route from a District Commission order up to the Supreme Court, and what are the time limits?",
+    "source_document": "ConsumerProtectionAct2019.pdf",
+    "source_section": "Section 41",
+    "source_page": 23,
+    "expected_answer": "An appeal against a District Commission order goes to the State Commission within forty-five days (Section 41); an appeal against certain State Commission orders goes to the National Commission within thirty days (Section 51); an appeal against certain National Commission orders goes to the Supreme Court within thirty days (Section 67).",
+    "relevant_sections": [
+      "Section 41",
+      "Section 51",
+      "Section 67"
+    ],
+    "difficulty": "hard",
+    "category": "multi_section",
+    "answerable": true,
+    "evidence_phrases": {
+      "Section 51": "any person aggrieved by an order made by the state commission"
+    }
+  },
+  {
+    "question_id": "Q033",
+    "question": "What is the punishment for failing to comply with an order of a Consumer Commission?",
+    "source_document": "ConsumerProtectionAct2019.pdf",
+    "source_section": "Section 72",
+    "source_page": 29,
+    "expected_answer": "Imprisonment for a term not less than one month but which may extend to three years, or a fine not less than twenty-five thousand rupees but which may extend to one lakh rupees, or both.",
+    "relevant_sections": [
+      "Section 72"
+    ],
+    "difficulty": "medium",
+    "category": "penalty_provision",
+    "answerable": true,
+    "evidence_phrases": {
+      "Section 72": "shall not be less than one month, but which may extend to three years"
+    }
+  },
+  {
+    "question_id": "Q034",
+    "question": "What is the punishment for a manufacturer or service provider who causes a false or misleading advertisement to be made?",
+    "source_document": "ConsumerProtectionAct2019.pdf",
+    "source_section": "Section 89",
+    "source_page": 33,
+    "expected_answer": "Imprisonment for a term which may extend to two years and a fine which may extend to ten lakh rupees; for every subsequent offence, imprisonment which may extend to five years and a fine which may extend to fifty lakh rupees.",
+    "relevant_sections": [
+      "Section 89"
+    ],
+    "difficulty": "medium",
+    "category": "penalty_provision",
+    "answerable": true
+  },
+  {
+    "question_id": "Q035",
+    "question": "How does the penalty the Central Authority can impose for misleading advertisements differ from the criminal punishment for them?",
+    "source_document": "ConsumerProtectionAct2019.pdf",
+    "source_section": "Section 21",
+    "source_page": 16,
+    "expected_answer": "Under Section 21 the Central Authority may order discontinuation or modification of the advertisement and impose a penalty on a manufacturer or endorser which may extend to ten lakh rupees, and fifty lakh rupees for each subsequent contravention, and may prohibit an endorser from endorsing for up to one year. Under Section 89, a manufacturer or service provider is punished with imprisonment up to two years and a fine up to ten lakh rupees, and for each subsequent offence imprisonment up to five years and a fine up to fifty lakh rupees.",
+    "relevant_sections": [
+      "Section 21",
+      "Section 89"
+    ],
+    "difficulty": "hard",
+    "category": "comparison",
+    "answerable": true,
+    "evidence_phrases": {
+      "Section 21": "penalty which may extend to ten lakh rupees"
+    }
+  },
+  {
+    "question_id": "Q036",
+    "question": "What is the punishment for selling a product containing an adulterant if it results in the death of a consumer?",
+    "source_document": "ConsumerProtectionAct2019.pdf",
+    "source_section": "Section 90",
+    "source_page": 33,
+    "expected_answer": "Imprisonment for a term which shall not be less than seven years but which may extend to imprisonment for life, with a fine which shall not be less than ten lakh rupees.",
+    "relevant_sections": [
+      "Section 90"
+    ],
+    "difficulty": "hard",
+    "category": "penalty_provision",
+    "answerable": true,
+    "evidence_phrases": {
+      "Section 90": "which shall not be less than seven years, but which may extend to imprisonment for life"
+    }
+  },
+  {
+    "question_id": "Q037",
+    "question": "A customer buys a mobile phone that turns out to be defective. What can the District Commission order the seller to do?",
+    "source_document": "ConsumerProtectionAct2019.pdf",
+    "source_section": "Section 39",
+    "source_page": 22,
+    "expected_answer": "If satisfied that the goods suffer from the defects alleged, the District Commission can order the opposite party to remove the defect, replace the goods with new goods free from defect, return the price or charges paid with interest, pay compensation for loss or injury due to negligence (including punitive damages in appropriate circumstances), and pay adequate costs to the parties, among other directions.",
+    "relevant_sections": [
+      "Section 39"
+    ],
+    "difficulty": "medium",
+    "category": "scenario_based",
+    "answerable": true,
+    "evidence_phrases": {
+      "Section 39": "to replace the goods with new goods of similar description"
+    }
+  },
+  {
+    "question_id": "Q038",
+    "question": "A celebrity endorses a product through a misleading advertisement. What action can the Central Authority take against the endorser?",
+    "source_document": "ConsumerProtectionAct2019.pdf",
+    "source_section": "Section 21",
+    "source_page": 16,
+    "expected_answer": "After investigation, the Central Authority can issue directions to discontinue or modify the advertisement, impose a penalty on the endorser which may extend to ten lakh rupees (up to fifty lakh rupees for each subsequent contravention), and prohibit the endorser from making endorsements of any product or service for a period which may extend to one year.",
+    "relevant_sections": [
+      "Section 21"
+    ],
+    "difficulty": "medium",
+    "category": "scenario_based",
+    "answerable": true,
+    "evidence_phrases": {
+      "Section 21": "prohibit the endorser of a false or misleading advertisement from making endorsement"
+    }
+  },
+  {
+    "question_id": "Q039",
+    "question": "Within how many days should the admissibility of a complaint ordinarily be decided, and what happens if the District Commission does not decide in time?",
+    "source_document": "ConsumerProtectionAct2019.pdf",
+    "source_section": "Section 36",
+    "source_page": 19,
+    "expected_answer": "The admissibility of the complaint shall ordinarily be decided within twenty-one days from the date on which the complaint was filed. If the District Commission does not decide within the specified period, the complaint is deemed to have been admitted.",
+    "relevant_sections": [
+      "Section 36"
+    ],
+    "difficulty": "medium",
+    "category": "exact_terminology",
+    "answerable": true,
+    "evidence_phrases": {
+      "Section 36": "admissibility of the complaint shall ordinarily be decided within twenty-one days"
+    }
+  },
+  {
+    "question_id": "Q040",
+    "question": "Who is allowed to file a complaint with a District Commission?",
+    "source_document": "ConsumerProtectionAct2019.pdf",
+    "source_section": "Section 35",
+    "source_page": 19,
+    "expected_answer": "A complaint may be filed by the consumer, by any recognised consumer association, by one or more consumers having the same interest (with the permission of the District Commission) on behalf of all such consumers, or by the Central Government, the Central Authority or the State Government. The complaint may be filed electronically.",
+    "relevant_sections": [
+      "Section 35"
+    ],
+    "difficulty": "medium",
+    "category": "semantic_understanding",
+    "answerable": true,
+    "evidence_phrases": {
+      "Section 35": "any recognised consumer association"
+    }
+  },
+  {
+    "question_id": "Q041",
+    "question": "How does mediation work once the parties agree to it, and how quickly must the Commission record the settlement?",
+    "source_document": "ConsumerProtectionAct2019.pdf",
+    "source_section": "Section 37",
+    "source_page": 19,
+    "expected_answer": "If it appears that there are elements of a settlement, the District Commission may direct the parties to give written consent to mediation within five days, and within five days of receiving the consent it refers the matter to mediation (Section 37). After mediation, the Commission must within seven days of receiving the settlement report pass an order recording the settlement and dispose of the matter accordingly (Section 81).",
+    "relevant_sections": [
+      "Section 37",
+      "Section 81"
+    ],
+    "difficulty": "hard",
+    "category": "multi_section",
+    "answerable": true
+  },
+  {
+    "question_id": "Q042",
+    "question": "On what grounds is a product manufacturer liable in a product liability action?",
+    "source_document": "ConsumerProtectionAct2019.pdf",
+    "source_section": "Section 84",
+    "source_page": 31,
+    "expected_answer": "A product manufacturer is liable if the product contains a manufacturing defect, is defective in design, deviates from manufacturing specifications, does not conform to the express warranty, or fails to contain adequate instructions for correct usage or warnings regarding improper or incorrect usage. The manufacturer is liable even if he proves he was not negligent or fraudulent in making the express warranty.",
+    "relevant_sections": [
+      "Section 84"
+    ],
+    "difficulty": "hard",
+    "category": "legal_obligation",
+    "answerable": true
+  },
+  {
+    "question_id": "Q043",
+    "question": "Does the Consumer Protection Act, 2019 apply to all goods and services?",
+    "source_document": "ConsumerProtectionAct2019.pdf",
+    "source_section": "Section 1",
+    "source_page": 4,
+    "expected_answer": "Yes. Save as otherwise expressly provided by the Central Government by notification, the Act applies to all goods and services.",
+    "relevant_sections": [
+      "Section 1"
+    ],
+    "difficulty": "easy",
+    "category": "applicability",
+    "answerable": true
+  },
+  {
+    "question_id": "Q044",
+    "question": "Can a shopkeeper who buys goods in order to resell them bring a complaint as a consumer?",
+    "source_document": "ConsumerProtectionAct2019.pdf",
+    "source_section": "Section 2",
+    "source_page": 4,
+    "expected_answer": "No. The definition of consumer does not include a person who obtains goods for resale or for any commercial purpose.",
+    "relevant_sections": [
+      "Section 2"
+    ],
+    "difficulty": "medium",
+    "category": "semantic_understanding",
+    "answerable": true,
+    "evidence_phrases": {
+      "Section 2": "but does not include a person who obtains such goods for resale or for any commercial purpose"
+    }
+  },
+  {
+    "question_id": "Q045",
+    "question": "Who is the current Prime Minister of India?",
+    "source_document": null,
+    "source_section": null,
+    "source_page": null,
+    "expected_answer": "Insufficient evidence in the retrieved legal documents to answer this question reliably.",
+    "relevant_sections": [],
+    "difficulty": "easy",
+    "category": "out_of_scope",
+    "answerable": false
+  },
+  {
+    "question_id": "Q046",
+    "question": "What is the punishment for dishonour of a cheque under the Negotiable Instruments Act?",
+    "source_document": null,
+    "source_section": null,
+    "source_page": null,
+    "expected_answer": "Insufficient evidence in the retrieved legal documents to answer this question reliably.",
+    "relevant_sections": [],
+    "difficulty": "easy",
+    "category": "out_of_scope",
+    "answerable": false
+  },
+  {
+    "question_id": "Q047",
+    "question": "What penalties does the Digital Personal Data Protection Act, 2023 impose for a data breach?",
+    "source_document": null,
+    "source_section": null,
+    "source_page": null,
+    "expected_answer": "Insufficient evidence in the retrieved legal documents to answer this question reliably.",
+    "relevant_sections": [],
+    "difficulty": "easy",
+    "category": "out_of_scope",
+    "answerable": false
+  },
+  {
+    "question_id": "Q048",
+    "question": "What is the punishment for sending offensive messages through a communication service under Section 66A of the IT Act?",
+    "source_document": null,
+    "source_section": null,
+    "source_page": null,
+    "expected_answer": "Insufficient evidence in the retrieved legal documents to answer this question reliably.",
+    "relevant_sections": [],
+    "difficulty": "easy",
+    "category": "out_of_scope",
+    "answerable": false
+  },
+  {
+    "question_id": "Q049",
+    "question": "What is the GST rate on mobile phones?",
+    "source_document": null,
+    "source_section": null,
+    "source_page": null,
+    "expected_answer": "Insufficient evidence in the retrieved legal documents to answer this question reliably.",
+    "relevant_sections": [],
+    "difficulty": "easy",
+    "category": "out_of_scope",
+    "answerable": false
+  },
+  {
+    "question_id": "Q050",
+    "question": "What is the fine for over-speeding under the Motor Vehicles Act?",
+    "source_document": null,
+    "source_section": null,
+    "source_page": null,
+    "expected_answer": "Insufficient evidence in the retrieved legal documents to answer this question reliably.",
+    "relevant_sections": [],
+    "difficulty": "easy",
+    "category": "out_of_scope",
+    "answerable": false
+  }
+]

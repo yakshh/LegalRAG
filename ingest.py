@@ -1,11 +1,3 @@
-"""Step 1: read every PDF in the documents folder, detect sections, split into chunks, save chunks.json.
-
-Each chunk: {"id", "document", "page", "section", "text"}
-    page    = PDF page on which the chunk's text starts
-    section = "Section 43", "Preamble", "First Schedule", ...
-
-    python ingest.py
-"""
 import bisect
 import glob
 import json
